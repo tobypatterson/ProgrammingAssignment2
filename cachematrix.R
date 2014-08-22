@@ -44,7 +44,7 @@ makeCacheMatrix <- function(matrix = matrix()) {
 cacheSolve <- function(x, ...) {
   
   # Error checking - make sure we can are working with corrected data type
-  if(class(o) != 'list') { 
+  if(class(x) != 'list') { 
     warning("Need to pass an object from makeCacheMatrix()")
     return()
   }
