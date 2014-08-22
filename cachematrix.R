@@ -46,6 +46,7 @@ cacheSolve <- function(x, ...) {
   # Error checking - make sure we can are working with corrected data type
   if(class(o) != 'list') { 
     warning("Need to pass an object from makeCacheMatrix()")
+    return()
   }
   
   # Attempt to fetch the cached version first
@@ -58,6 +59,11 @@ cacheSolve <- function(x, ...) {
   # Nope - solve and cache
   data  <- x$get()
   solved  <- solve(data, ...)
+  if(class(solved) != 'matrix') { 
+    warning("Cannot solve the matrix")
+    return();
+  }
+  
   x$setInverse(solved)
   
   # Return our data
